@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {INSTRUMENTS} from '../person';
 
 @Component({
@@ -12,20 +12,24 @@ export class ReactiveFormComponent implements OnInit {
   instruments = INSTRUMENTS;
 
   constructor(private formBuilder: FormBuilder) {
-    this.createForm();
   }
 
   ngOnInit() {
+    this.createForm();
   }
 
   submitForm() {
     console.log(this.personForm.value);
   }
 
+  get name() {
+    return this.personForm.get('name');
+  }
+
   private createForm() {
     this.personForm = this.formBuilder.group({
-      name: 'Jimmy Reactive',
-      favoriteInstrument: INSTRUMENTS[0]
+      name: ['', Validators.required],
+      favoriteInstrument: ['', Validators.required]
     });
   }
 }

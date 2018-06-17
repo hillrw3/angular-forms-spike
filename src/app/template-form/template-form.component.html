@@ -1,19 +1,21 @@
-<form #templateForm="ngForm" (ngSubmit)="submitForm()">
+<form class="form" #templateForm="ngForm" (ngSubmit)="submitForm()">
 
-  <div>
+  <div class="form-group">
     <label>Name:
-      <input [(ngModel)]="person.name" name="name">
+      <input required [(ngModel)]="person.name" name="name" #name="ngModel">
     </label>
+    <div class="error" *ngIf="name.invalid && name.touched">
+      Name is required.
+    </div>
   </div>
 
-  <div>
+  <div class="form-group">
     <label>Favorite Instrument:
-      <select name="favoriteInstrument" [(ngModel)]="person.favoriteInstrument">
+      <select required name="favoriteInstrument" [(ngModel)]="person.favoriteInstrument">
         <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
       </select>
     </label>
   </div>
 
-
-  <button type="submit">Submit</button>
+  <button type="submit" [disabled]="templateForm.invalid">Submit</button>
 </form>

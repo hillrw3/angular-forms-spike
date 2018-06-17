@@ -1,0 +1,18 @@
+<form [formGroup]="personForm" (ngSubmit)="submitForm()">
+
+  <div>
+    <label>Name:
+      <input formControlName="name">
+    </label>
+  </div>
+
+  <div>
+    <label>Favorite Instrument:
+      <select formControlName="favoriteInstrument">
+        <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
+      </select>
+    </label>
+  </div>
+
+  <button type="submit">Submit</button>
+</form>

@@ -1,0 +1,19 @@
+<form #templateForm="ngForm" (ngSubmit)="submitForm()">
+
+  <div>
+    <label>Name:
+      <input [(ngModel)]="person.name" name="name">
+    </label>
+  </div>
+
+  <div>
+    <label>Favorite Instrument:
+      <select name="favoriteInstrument" [(ngModel)]="person.favoriteInstrument">
+        <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
+      </select>
+    </label>
+  </div>
+
+
+  <button type="submit">Submit</button>
+</form>

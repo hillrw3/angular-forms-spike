@@ -26,6 +26,10 @@ export class ReactiveFormComponent implements OnInit {
     return this.personForm.get('name');
   }
 
+  get favoriteInstrument() {
+    return this.personForm.get('favoriteInstrument');
+  }
+
   private createForm() {
     this.personForm = this.formBuilder.group({
       name: ['', Validators.required],

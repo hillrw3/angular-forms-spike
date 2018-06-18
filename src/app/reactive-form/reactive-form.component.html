@@ -1,21 +1,27 @@
-<form class="form" [formGroup]="personForm" (ngSubmit)="submitForm()">
+<div class="form">
+  <h1>Reactive Form</h1>
 
-  <div class="form-group">
-    <label>Name:
-      <input formControlName="name">
-    </label>
-    <div class="error" *ngIf="name.invalid && name.touched">
-      Name is required.
+  <form [formGroup]="personForm" (ngSubmit)="submitForm()">
+    <div class="form-group" [class.error]="name.invalid && name.touched">
+      <label>Name:
+        <input formControlName="name">
+      </label>
+      <div class="error" *ngIf="name.invalid && name.touched">
+        Name is required.
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Favorite Instrument:
-      <select formControlName="favoriteInstrument">
-        <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
-      </select>
-    </label>
-  </div>
+    <div class="form-group" [class.error]="favoriteInstrument.invalid && favoriteInstrument.touched">
+      <label>Favorite Instrument:
+        <select formControlName="favoriteInstrument">
+          <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
+        </select>
+        <div class="error" *ngIf="favoriteInstrument.invalid && favoriteInstrument.touched">
+          Favorite Instrument is required.
+        </div>
+      </label>
+    </div>
 
-  <button type="submit" [disabled]="personForm.invalid">Submit</button>
-</form>
+    <button type="submit" [disabled]="personForm.invalid">Submit</button>
+  </form>
+</div>

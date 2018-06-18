@@ -1,21 +1,27 @@
-<form class="form" #templateForm="ngForm" (ngSubmit)="submitForm()">
+<div class="form">
+  <h1>Template-Driven Form</h1>
 
-  <div class="form-group">
-    <label>Name:
-      <input required [(ngModel)]="person.name" name="name" #name="ngModel">
-    </label>
-    <div class="error" *ngIf="name.invalid && name.touched">
-      Name is required.
+  <form #templateForm="ngForm" (ngSubmit)="submitForm()">
+    <div class="form-group" [class.error]="name.invalid && name.touched">
+      <label>Name:
+        <input required [(ngModel)]="person.name" name="name" #name="ngModel">
+      </label>
+      <div class="error" *ngIf="name.invalid && name.touched">
+        Name is required.
+      </div>
     </div>
-  </div>
 
-  <div class="form-group">
-    <label>Favorite Instrument:
-      <select required name="favoriteInstrument" [(ngModel)]="person.favoriteInstrument">
-        <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
-      </select>
-    </label>
-  </div>
+    <div class="form-group" [class.error]="favoriteInstrument.invalid && favoriteInstrument.touched">
+      <label>Favorite Instrument:
+        <select required name="favoriteInstrument" [(ngModel)]="person.favoriteInstrument" #favoriteInstrument="ngModel">
+          <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
+        </select>
+      </label>
+      <div class="error" *ngIf="favoriteInstrument.invalid && favoriteInstrument.touched">
+        Favorite Instrument is required.
+      </div>
+    </div>
 
-  <button type="submit" [disabled]="templateForm.invalid">Submit</button>
-</form>
+    <button type="submit" [disabled]="templateForm.invalid">Submit</button>
+  </form>
+</div>

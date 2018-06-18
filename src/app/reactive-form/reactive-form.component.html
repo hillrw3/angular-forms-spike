@@ -2,22 +2,36 @@
   <h1>Reactive Form</h1>
 
   <form [formGroup]="personForm" (ngSubmit)="submitForm()">
+    <div class="form-group" [class.error]="email.invalid && email.touched">
+      <label>Email:
+        <input formControlName="email">
+      </label>
+      <div class="error" *ngIf="email.invalid && email.touched">
+        <div *ngIf="email.errors.required">
+          Must not be blank.
+        </div>
+        <div *ngIf="email.errors.email">
+          Invalid format
+        </div>
+      </div>
+    </div>
+
     <div class="form-group" [class.error]="name.invalid && name.touched">
       <label>Name:
         <input formControlName="name">
       </label>
       <div class="error" *ngIf="name.invalid && name.touched">
-        Name is required.
+        Must not be blank.
       </div>
     </div>
 
-    <div class="form-group" [class.error]="favoriteInstrument.invalid && favoriteInstrument.touched">
-      <label>Favorite Instrument:
-        <select formControlName="favoriteInstrument">
+    <div class="form-group" [class.error]="primaryInstrument.invalid && primaryInstrument.touched">
+      <label>Primary Instrument:
+        <select formControlName="primaryInstrument">
           <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
         </select>
-        <div class="error" *ngIf="favoriteInstrument.invalid && favoriteInstrument.touched">
-          Favorite Instrument is required.
+        <div class="error" *ngIf="primaryInstrument.invalid && primaryInstrument.touched">
+          Must not be blank.
         </div>
       </label>
     </div>

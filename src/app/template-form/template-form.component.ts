@@ -7,7 +7,7 @@ import {INSTRUMENTS, Person} from '../person';
   styleUrls: ['./template-form.component.scss']
 })
 export class TemplateFormComponent implements OnInit {
-  person = new Person('', '');
+  person = new Person('', '', '');
   instruments = INSTRUMENTS;
 
   constructor() {

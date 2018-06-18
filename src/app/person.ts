@@ -1,9 +1,10 @@
 export class Person {
   constructor(
+    public email: string,
     public name: string,
-    public favoriteInstrument: string
+    public primaryInstrument: string
   ) {
   }
 }
 
-export const INSTRUMENTS: string[] = ['piano', 'cello', 'guitar', 'tambourine'];
+export const INSTRUMENTS: string[] = ['drums', 'keyboard', 'guitar', 'vocals', 'bass'];

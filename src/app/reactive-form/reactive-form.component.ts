@@ -30,15 +30,15 @@ export class ReactiveFormComponent implements OnInit {
     return this.personForm.get('name')
   }
 
-  get primaryInstrument() {
-    return this.personForm.get('primaryInstrument')
+  get favoriteInstrument() {
+    return this.personForm.get('favoriteInstrument')
   }
 
   private createForm() {
     this.personForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       name: ['', Validators.required],
-      primaryInstrument: ['', Validators.required]
+      favoriteInstrument: ['', Validators.required]
     })
   }
 }

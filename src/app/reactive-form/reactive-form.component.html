@@ -25,12 +25,12 @@
       </div>
     </div>
 
-    <div class="form-group" [class.error]="primaryInstrument.invalid && primaryInstrument.touched">
+    <div class="form-group" [class.error]="favoriteInstrument.invalid && favoriteInstrument.touched">
       <label>Primary Instrument:
-        <select formControlName="primaryInstrument">
+        <select formControlName="favoriteInstrument">
           <option *ngFor="let instrument of instruments" [value]="instrument">{{instrument}}</option>
         </select>
-        <div class="error" *ngIf="primaryInstrument.invalid && primaryInstrument.touched">
+        <div class="error" *ngIf="favoriteInstrument.invalid && favoriteInstrument.touched">
           Must not be blank.
         </div>
       </label>

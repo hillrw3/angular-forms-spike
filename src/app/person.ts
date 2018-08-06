@@ -2,7 +2,7 @@ export class Person {
   constructor(
     public email: string,
     public name: string,
-    public primaryInstrument: string
+    public favoriteInstrument: string
   ) {
   }
 }

@@ -7,10 +7,10 @@
         <input required email [(ngModel)]="person.email" name="email" #email="ngModel">
       </label>
       <div class="error" *ngIf="email.invalid && email.touched">
-        <div *ngIf="email.errors.required">
+        <div *ngIf="email.errors['required']">
           Must not be blank.
         </div>
-        <div *ngIf="email.errors.email">
+        <div *ngIf="email.errors['email']">
           Invalid format
         </div>      </div>
     </div>

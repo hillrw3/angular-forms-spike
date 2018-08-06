@@ -7,11 +7,11 @@
         <input formControlName="email">
       </label>
       <div class="error" *ngIf="email.invalid && email.touched">
-        <div *ngIf="email.errors.required">
+        <div *ngIf="email.errors['required']">
           Must not be blank.
         </div>
-        <div *ngIf="email.errors.email">
-          Invalid format
+        <div *ngIf="email.errors['email']">
+          Invalid email address format
         </div>
       </div>
     </div>

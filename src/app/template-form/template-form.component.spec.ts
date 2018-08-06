@@ -1,25 +1,27 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing'
 
-import { TemplateFormComponent } from './template-form.component';
+import {TemplateFormComponent} from './template-form.component'
+import {FormsModule} from '@angular/forms'
 
 describe('TemplateFormComponent', () => {
-  let component: TemplateFormComponent;
-  let fixture: ComponentFixture<TemplateFormComponent>;
+  let component: TemplateFormComponent
+  let fixture: ComponentFixture<TemplateFormComponent>
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TemplateFormComponent ]
+      declarations: [TemplateFormComponent],
+      imports: [FormsModule]
     })
-    .compileComponents();
-  }));
+      .compileComponents()
+  }))
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemplateFormComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    fixture = TestBed.createComponent(TemplateFormComponent)
+    component = fixture.componentInstance
+    fixture.detectChanges()
+  })
 
   it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+    expect(component).toBeTruthy()
+  })
+})

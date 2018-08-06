@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {INSTRUMENTS, Person} from '../person';
+import {Component, OnInit} from '@angular/core'
+import {INSTRUMENTS, Person} from '../person'
 
 @Component({
   selector: 'template-form',
@@ -7,8 +7,8 @@ import {INSTRUMENTS, Person} from '../person';
   styleUrls: ['./template-form.component.scss']
 })
 export class TemplateFormComponent implements OnInit {
-  person = new Person('', '', '');
-  instruments = INSTRUMENTS;
+  person = new Person('', '', '')
+  instruments = INSTRUMENTS
 
   constructor() {
   }
@@ -17,6 +17,6 @@ export class TemplateFormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.person);
+    console.log(this.person)
   }
 }
